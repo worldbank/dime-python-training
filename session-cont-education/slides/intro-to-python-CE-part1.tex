@@ -226,6 +226,7 @@
 	\begin{itemize}
 		\item int / float (numbers)
 		\item strings
+		\item booleans
 		\item lists
 	\end{itemize}
 
@@ -382,7 +383,7 @@
 
 \begin{frame}{Python basic classes - Booleans}
 
-	The order of the operations and the use of parenthesis matter for the results. Python will solve first the operations at the beginning of a line and continue one by one until the end unless something is enclosed in parenthesis
+	The order of the operations and the use of parenthesis matter for the results. Python will solve first the operations at the beginning of a line and continue one by one until the end unless something is enclosed in parentheses
 
 	\begin{figure}
 		\centering
@@ -394,7 +395,7 @@
 \begin{frame}{Python basic classes - Lists}
 
 	\begin{itemize}
-		\item Python uses lists to group objects like \texttt{str}, \texttt{int}, and \texttt{float} into another object
+		\item Python uses lists to group objects like \texttt{str}, \texttt{int}, \texttt{float}, and \texttt{bool} into another object
 		\item Lists are defined enclosed in brackets and separating its values with commas
 	\end{itemize}
 
@@ -503,7 +504,7 @@
 	\textbf{Important:}
 
 	\begin{itemize}	
-		\item Python differentiates what is inside the \text{for} loop and where it ends with an indentation space
+		\item Python differentiates what is inside the \texttt{for} loop and where it ends with an indentation space
 		\item Indentation can be two spaces or four spaces depending on your text editor or Python tool. In any case, you can also press the \texttt{tab} key to create indented space
 		\item If you ever run the script of a colleague who uses different indentation spacing Python will automatically know which indentation to assume. You just have to make sure that indentation is consistent within the same script.
 	\end{itemize}
@@ -569,7 +570,7 @@
 	\end{multicols}
 
 	\begin{itemize}
-		\item Note that the first two examples will not apply any operation because none of the values of the objects in \texttt{if} or \texttt{elif} is \texttt{True}.
+		\item Note that the first two examples will not apply any operation because none of the values of the objects after \texttt{if} or \texttt{elif} is \texttt{True}.
 		\item Both \texttt{if}, \texttt{elif}, and \texttt{else} need to have the same indentation level
 	\end{itemize}
 
@@ -578,7 +579,7 @@
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
 
 	\begin{itemize}
-		\item if a boolean expression returned \texttt{True} for conditions in both \texttt{if} and \texttt{elif}, only the operations  under \texttt{if} would be executed
+		\item If a boolean expression returned \texttt{True} for conditions in both \texttt{if} and \texttt{elif}, only the operations  under \texttt{if} would be executed
 		\item If more than one boolean expression under several \texttt{elif} conditions were to return \texttt{True}, only the operations under the first \texttt{elif} condition evaluated to \texttt{True} would be executed
 	\end{itemize}
 
