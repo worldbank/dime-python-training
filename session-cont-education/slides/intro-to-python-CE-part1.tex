@@ -117,25 +117,45 @@
 \begin{frame}{Introduction}
 
 	\begin{itemize}
-		\item This session will introduce you to the very basics of Python
-		\item We'll also review a web scraping exercise where you'll see how versatile Python is
-		\item By the end of this session, you'll be able to write and review \textbf{basic} Python code
+		\item This session will introduce you to the basics of Python
+		\item In the end we will apply this to a web scraping exercise 
+		\item After this session, you'll be able to write and review \textbf{basic} Python code
+		\item This session does not include how to use datasets in Python 
+		- instead it will focus on the fundamental building blocks to everything in Python,
+		data types
 	\end{itemize}
 
+\end{frame}
+
+\begin{frame}{Python for Stata users}
+	
+	\begin{itemize}
+		\item There are many great Python courses available for free on the internet - so why is DIME Analytics making yet another one?
+		\item This session makes two assumptions not common among the courses already available:
+		\begin{itemize}
+			\item We assume that you will use Python for research and not computer science
+			\item We assume that you are coming from a Stata background 
+		\end{itemize}
+		\item Many concepts will be explained by referencing concepts in Stata
+	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}{Introduction - Why Python if I already use Stata?}
 
 	\begin{itemize}
-		\item Versatility: you can do almost any data operation with Python:
+		\item Versatility: you can solve almost any programming task with Python:
 		\begin{itemize}
-			\item Web scraping
-			\item Text analysis
-			\item Web applications to retrieve data
+			\item Web scraping, text analysis, web applications to retrieve data, machine learning
 		\end{itemize}
-		\item Python is easier to set up when working with remote servers -- think of using big data, for example
-		\item Because it's free!
+		\item Much bigger user base
+		\item Python is open source and free to use!
+		\item Since it's open source it is easier to run everywhere -- for example on big data servers
 	\end{itemize}
+
+	However, a big part of the user base does not do research or data science, 
+	and libraries for some less frequently used statistical operation 
+	has not yet been developed
 
 \end{frame}
 
@@ -179,8 +199,9 @@
 \begin{frame}{Getting started - Colab}
 
 	\begin{itemize}
-		\item Colab uses  blocks of code to organize your work
-		\item You can click on the $\blacktriangleright$ symbol or press \texttt{Ctrl} + \texttt{Enter} to run a block
+		\item Colab organize code in blocks - each block is like its own script
+		\item To run the code in a block, 
+		click the $\blacktriangleright$ symbol or press \texttt{Ctrl} + \texttt{Enter}
 	\end{itemize}
 
 	\begin{figure}
@@ -189,7 +210,7 @@
 	\end{figure}
 
 	\begin{itemize}
-		\item You can click on \texttt{+ Code} to add new blocks of code
+		\item Click on \texttt{+ Code} to add new blocks of code
 	\end{itemize}
 
 	\begin{figure}
@@ -216,32 +237,55 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
-\sectionpic{Python basic classes}{img/section_slide}
+\sectionpic{Python basic data types}{img/section_slide}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
-\begin{frame}{Python basic classes}
-
-	These are the object classes we'll review today:
+\begin{frame}{Python basic data types}
 
 	\begin{itemize}
-		\item int / float (numbers)
-		\item strings
-		\item booleans
-		\item lists
+		\item Macros (globals and locals) are often used in Stata to store text or numbers 
+		- in Python we use data types, also called objects
+		\item However, while macros in Stata are "nice to have", 
+		objects in Python are the building block of everything 
+		and you cannot write Python code without them
+		\item Today we will cover the most basic data types: 
+		int/float (numbers), strings, booleans and lists
+		\item Data types or objects does more then just store data, 
+		the provide operations related to that data type, 
+		for example, add and remove item from a list, make a string upper case etc.
+		
 	\end{itemize}
-
-	The appendix of this presentation includes an overview of tuples and dictionaries
-
 \end{frame}
+
+\begin{frame}{Python - more on data types}
+
+	\begin{itemize}
+		\item Two other common built-in data types not covered today are tuples and dictionaries 
+		- but there are an infinite number of other data types or objects
+		\item Python users build their own data types based on the built-in types 
+		- you will frequently use such data types
+		\item For example, data sets in Python is an object called Pandas 
+		which is a custom data type implemented by the Python community
+		\item All of these custom data types store data 
+		and provide operations specially implemented for the intended context
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Python basic classes - Defining an object}
 
-	We use the \texttt{=} operator to assign objects in Python.
+	Just like in Stata, the \texttt{=} operator is used to assign value in Python
+	
+	When we assign value to a data type in Python we say that we create \textit{an object},
+	or \textit{an instance of an object}
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/assignation.png}
 	\end{figure}
+
+	Note: An instance of an object can also be called \textit{a variable},
+	which can be confusing as that term is reserved for a column in a data set in Stata
 
 \end{frame}
 
@@ -264,14 +308,18 @@
 
 \begin{frame}{Python basic classes - \texttt{float}}
 
-	\texttt{float} objects, on the other hand, represent real numbers
+	\texttt{float} objects, on the other hand, represent real numbers 
+	- we can do mathematical operations with floats as well
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/type_float.png}
 	\end{figure}
 
-	We can also do mathematical operations with floats.
+	Python is what's called "\textit{dynamically typed}", 
+	which means that you do not need to indicate what data type you want 
+	- Python detects if it is an integer, floating point (decimal number), 
+	text etc. as long as it is a built-in data type.
 
 \end{frame}
 
@@ -283,6 +331,9 @@
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/string_type.png}
 	\end{figure}
+
+	An object can be used across code blocks 
+	- this is common in all notebook styled python interfaces, like Colab
 
 \end{frame}
 
@@ -311,19 +362,10 @@
 	\begin{itemize}
 		\item Python \textbf{starts indexing at zero}, not at one
 		\item When creating a substring with \texttt{a:b}, Python will start by taking the element at position \texttt{a} and will stop at the element \texttt{(b - 1)} -- this is why \texttt{str2[0:3]} returns the letters at positions 0, 1, 2
-		\item These apply not only to indexing strings, but to any indexing operations in Python  
 	\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Numbers and strings}
-
-	\begin{itemize}
-		\item \texttt{str} and numeric classes are basically single objects, as opposed to Stata's variables which contain a series of observations of the same type
-		\item They are similar to Stata's globals and locals
-	\end{itemize}
-
-\end{frame}
 
 \begin{frame}{Python basic classes - Booleans}
 
