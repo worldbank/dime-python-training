@@ -198,6 +198,7 @@
 	\begin{itemize}	
 		\item To execute this operations, we'll need to use three Python libraries.
 		\item Libraries are similar to the user-written Stata commands you download from the \texttt{ssc} repository, except that you have to manually load them in each new Python session you start.
+		\item Each library has custom made data types with operations specific to the topic of the library.
 		\item To install libraries, we would normally have to use Window's or Mac's command lines. However, we'll skip installing for now because Colab has the libraries we need already pre-installed.
 	\end{itemize}
 
@@ -237,7 +238,7 @@
 
 \begin{frame}{Web scraping - Retrieving raw \texttt{html} code}
 
-	\texttt{response} contains not only the \texttt{html} code we're looking for, but also information about our html request itself. For example, we can use \texttt{status\_code} to check if our request was successful:
+	\texttt{response} is a data type that contains not only the \texttt{html} code we're looking for, but also information about our html request itself. For example, we can use \texttt{status\_code} to check if our request was successful:
 
 	\begin{figure}
 		\centering
@@ -250,7 +251,10 @@
 
 \begin{frame}{Web scraping - Retrieving raw \texttt{html} code}
 
-	After a successful request, we use \texttt{.text} to extract the code we're looking for. The result is a single very long string.
+	After we checked that the request was successful, 
+	we use an attribute called \texttt{.text} on the response data type 
+	to extract the html code from the page we requested. 
+	The result is a single very long string.
 
 	\begin{figure}
 		\centering
@@ -279,11 +283,23 @@
 \begin{frame}{Web scraping - Extracting and arranging information}
 
 	This manual inspection allow us to see that every single observation in our target table is enclosed between \texttt{tr} tags, and that every piece of information inside an observation is enclosed in \texttt{td} tags
+	
+	\begin{columns}[c]
+		\column{.50\textwidth} % Left column and width
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.3\linewidth]{img/tags2.png}
-	\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\linewidth]{img/tags2.png}
+		\end{figure}
+		
+		\column{.50\textwidth} % Right column and width
+		\begin{itemize}
+			\item \texttt{tr} - stands for "table row"
+			\item \texttt{td} - stands for "table data cell"
+		\end{itemize}
+		
+	\end{columns}
+
 
 \end{frame}
 
@@ -296,7 +312,8 @@
 		\item For each of the contents enclosed in \texttt{tr} tags, extract every in piece of information enclosed in \texttt{td} tags
 	\end{enumerate}
 
-	We'll use \texttt{BeautifulSoup} for this
+	We'll use \texttt{BeautifulSoup} for this 
+	- a commonly used library to extract information from an html code
 
 \end{frame}
 
@@ -322,7 +339,7 @@
 
 	\begin{itemize}	
 		\item The result is not a string anymore, but a \texttt{BeautifulSoup} data type
-		\item You can think of it as a text with divisions and subdivisions
+		\item You can think of it as a text with divisions and subdivisions with many operations to work with the content
 	\end{itemize}
 
 \end{frame}
