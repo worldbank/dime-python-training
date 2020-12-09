@@ -262,7 +262,7 @@
 	\begin{itemize}
 		\item Two other common built-in data types not covered today are tuples and dictionaries 
 		- but there are an infinite number of other data types or objects
-		\item Python users build their own data types based on the built in types 
+		\item Python users build their own data types based on the built-in types 
 		- you will frequently use such data types
 		\item For example, data sets in Python is an object called Pandas 
 		which is a custom data type implemented by the Python community
@@ -274,12 +274,18 @@
 
 \begin{frame}{Python basic classes - Defining an object}
 
-	We use the \texttt{=} operator to assign objects in Python.
+	Just like in Stata, the \texttt{=} operator is used to assign value in Python
+	
+	When we assign value to a data type in Python we say that we create \textit{an object},
+	or \textit{an instance of an object}
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/assignation.png}
 	\end{figure}
+
+	Note: An instance of an object can also be called \textit{a variable},
+	which can be confusing as that term is reserved for a column in a data set in Stata
 
 \end{frame}
 
@@ -326,6 +332,9 @@
 		\includegraphics[width=0.6\linewidth]{img/string_type.png}
 	\end{figure}
 
+	An object can be used across code blocks 
+	- this is common in all notebook styled python interfaces, like Colab
+
 \end{frame}
 
 \begin{frame}{Python basic classes - \texttt{str}}
@@ -353,19 +362,10 @@
 	\begin{itemize}
 		\item Python \textbf{starts indexing at zero}, not at one
 		\item When creating a substring with \texttt{a:b}, Python will start by taking the element at position \texttt{a} and will stop at the element \texttt{(b - 1)} -- this is why \texttt{str2[0:3]} returns the letters at positions 0, 1, 2
-		\item These apply not only to indexing strings, but to any indexing operations in Python  
 	\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Numbers and strings}
-
-	\begin{itemize}
-		\item \texttt{str} and numeric classes are basically single objects, as opposed to Stata's variables which contain a series of observations of the same type
-		\item They are similar to Stata's globals and locals
-	\end{itemize}
-
-\end{frame}
 
 \begin{frame}{Python basic classes - Booleans}
 
