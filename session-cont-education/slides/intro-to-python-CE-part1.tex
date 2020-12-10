@@ -121,16 +121,16 @@
 		\item In the end we will apply this to a web scraping exercise 
 		\item After this session, you'll be able to write and review \textbf{basic} Python code
 		\item This session does not include how to use datasets in Python 
-		- instead it will focus on the fundamental building blocks to everything in Python,
+		-- instead it will focus on the fundamental building blocks to everything in Python,
 		data types
 	\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Python for Stata users}
+\begin{frame}{Introduction - Python for Stata users}
 	
 	\begin{itemize}
-		\item There are many great Python courses available for free on the internet - so why is DIME Analytics making yet another one?
+		\item There are many great Python courses available for free on the internet -- so why is DIME Analytics making yet another one?
 		\item This session makes two assumptions not common among the courses already available:
 		\begin{itemize}
 			\item We assume that you will use Python for research and not computer science
@@ -172,7 +172,7 @@
 
 \end{frame}
 
-\begin{frame}{Getting started}
+\begin{frame}{Getting started - Colab}
 
 	\begin{itemize}
 		\item Go to https://colab.research.google.com
@@ -198,8 +198,19 @@
 
 \begin{frame}{Getting started - Colab}
 
+	You should end up with something like this in your browser:
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/colab.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Getting started - Colab}
+
 	\begin{itemize}
-		\item Colab organize code in blocks - each block is like its own script
+		\item Colab organizes code in blocks -- each block is like its own script
 		\item To run the code in a block, 
 		click the $\blacktriangleright$ symbol or press \texttt{Ctrl} + \texttt{Enter}
 	\end{itemize}
@@ -209,6 +220,10 @@
 		\includegraphics[width=0.6\linewidth]{img/block_of_code.png}
 	\end{figure}
 
+\end{frame}
+
+\begin{frame}{Getting started - Colab}
+
 	\begin{itemize}
 		\item Click on \texttt{+ Code} to add new blocks of code
 	\end{itemize}
@@ -216,23 +231,9 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/add_code.png}
-	\end{figure}
+	\end{figure}	
 
-\end{frame}
-
-\begin{frame}{Getting started - Colab}
-
-	\begin{itemize}
-		\item You can also add blocks of plain text in Colab by clicking on \texttt{+ Text}
-		\item Text blocks are great to explain what you're doing in a code block
-	\end{itemize}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/text_block_between_code_blocks.png}
-	\end{figure}
-
-	\textbf{Important:} Code and text blocks are a feature specific to Colab. Most Python distributions don't have this feature
+	\textbf{Important:} Code blocks are a feature specific to Colab. Most Python distributions don't have this feature
 
 \end{frame}
 
@@ -240,65 +241,81 @@
 \sectionpic{Python basic data types}{img/section_slide}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
-\begin{frame}{Python basic data types}
+\begin{frame}{Python variables}
 
 	\begin{itemize}
-		\item Macros (globals and locals) are often used in Stata to store text or numbers 
-		- in Python we use data types, also called objects
-		\item However, while macros in Stata are "nice to have", 
-		objects in Python are the building block of everything 
-		and you cannot write Python code without them
-		\item Today we will cover the most basic data types: 
-		int/float (numbers), strings, booleans and lists
-		\item Data types or objects does more then just store data, 
-		the provide operations related to that data type, 
-		for example, add and remove item from a list, make a string upper case etc.
-		
+		\item In Stata, variables are columns of a dataframe
+		\item In Python, variables are everything that we define with a name to be referenced -- more similar to Stata's locals or globals (macros)
+		\item Nonetheless, while macros in Stata are "nice to have" and useful, variables in Python are the building block of everything and you cannot write code without them
 	\end{itemize}
+
 \end{frame}
 
-\begin{frame}{Python - more on data types}
+\begin{frame}{Python variables}
 
-	\begin{itemize}
-		\item Two other common built-in data types not covered today are tuples and dictionaries 
-		- but there are an infinite number of other data types or objects
-		\item Python users build their own data types based on the built-in types 
-		- you will frequently use such data types
-		\item For example, data sets in Python is an object called Pandas 
-		which is a custom data type implemented by the Python community
-		\item All of these custom data types store data 
-		and provide operations specially implemented for the intended context
-	\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Python basic classes - Defining an object}
-
-	Just like in Stata, the \texttt{=} operator is used to assign value in Python
-	
-	When we assign value to a data type in Python we say that we create \textit{an object},
-	or \textit{an instance of an object}
+	Just like in Stata, in Python we use the \texttt{=} operator to create variables
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/assignation.png}
 	\end{figure}
 
-	Note: An instance of an object can also be called \textit{a variable},
-	which can be confusing as that term is reserved for a column in a data set in Stata
+\end{frame}
 
+\begin{frame}{Python variables}
+
+	This also works when we're trying to replace an existing variable
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/replace.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Python basic data types}
+
+	\begin{itemize}
+		\item Every Python variable has a data type
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/data_type.png}
+	\end{figure}
+
+	\begin{itemize}
+		\item Today we will cover the most basic data types: 
+		int/float (numbers), strings, booleans and lists
+		\item Variables in Python do more than just store data.
+		They provide operations related to their data type, 
+		for example: add and remove item from a list, make a string upper case, etc.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Python - more on data types}
+
+	\begin{itemize}
+		\item Python has thousands of other data types
+		\item This is because users can build their own data types based on the built-in types 
+		-- you will frequently use such data types \scriptsize(and we'll use some of them later today) \normalsize
+		\item For example, a dataset in Python is a variable from the \texttt{pandas dataset} type, a custom data type implemented by the Python community
+		\item All of these custom data types store data 
+		and provide built-in functionality specially implemented for the intended context
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Python basic classes - \texttt{int}}
 
-	The \texttt{x} and \texttt{y} objects we just defined have the class \texttt{int}
+	The \texttt{x} and \texttt{y} variables we just defined have the data type \texttt{int}
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/type_int.png}
 	\end{figure}
 
-	\texttt{int} objects are integer numbers. We can do mathematical operations with them
+	\texttt{int} variables are integer numbers. We can do mathematical operations with them
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/math_integers.png}
@@ -308,38 +325,40 @@
 
 \begin{frame}{Python basic classes - \texttt{float}}
 
-	\texttt{float} objects, on the other hand, represent real numbers 
-	- we can do mathematical operations with floats as well
+	\texttt{float} variables, on the other hand, represent real numbers 
+	-- we can do mathematical operations with floats as well
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/type_float.png}
 	\end{figure}
 
-	Python is what's called "\textit{dynamically typed}", 
-	which means that you do not need to indicate what data type you want 
-	- Python detects if it is an integer, floating point (decimal number), 
-	text etc. as long as it is a built-in data type.
+	\begin{itemize}	
+		\item Python is what's called "\textit{dynamically typed}", 
+	which means that you do not need to indicate what data type you want
+		\item It detects when a variable is an integer, floating point (decimal number), 
+	text, etc. as long as it is a built-in data type.
+	\end{itemize}
 
 \end{frame}
 
 \begin{frame}{Python basic classes - \texttt{str}}
 
-	\texttt{str} objects are strings with text
+	\texttt{str} variables are strings with text
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/string_type.png}
 	\end{figure}
 
-	An object can be used across code blocks 
-	- this is common in all notebook styled python interfaces, like Colab
+	\textbf{Note:} A variable can be used across code blocks 
+	-- this is common in all notebook styled python interfaces, like Colab
 
 \end{frame}
 
 \begin{frame}{Python basic classes - \texttt{str}}
 
-	Python allows two types of mathematical operations with \texttt{str}: \texttt{+} and \texttt{*}
+	Python allows two types of "mathematical" operations with \texttt{str}: \texttt{+} and \texttt{*}
 
 	\begin{figure}
 		\centering
@@ -348,28 +367,86 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - \texttt{str}}
+\begin{frame}{Python basic classes - Lists}
 
-	We can also index and create substrings out of \texttt{str} objects
+	\begin{itemize}
+		\item A list is a variable that groups other variables
+		\item Lists can have different data types in them at the same time. They can even include other lists!
+		\item Lists are defined enclosed in brackets and separating its values with commas
+	\end{itemize}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.6\linewidth]{img/string_indexing.png}
+		\includegraphics[width=0.8\linewidth]{img/list_type.png}
 	\end{figure}
 
-	\textbf{Important:}
+\end{frame}
+
+\begin{frame}{Python basic classes - Lists}
+
+	We can index and subset lists
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/list_subset.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Python basic classes - Lists}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.53\linewidth]{img/list_subset_warnings.png}
+	\end{figure}
+
+	\textbf{Important:} Pythonists coming from Stata should keep this in mind:
 
 	\begin{itemize}
-		\item Python \textbf{starts indexing at zero}, not at one
-		\item When creating a substring with \texttt{a:b}, Python will start by taking the element at position \texttt{a} and will stop at the element \texttt{(b - 1)} -- this is why \texttt{str2[0:3]} returns the letters at positions 0, 1, 2
+		\item \textbf{Python starts indexing at zero}, not at one
+		\item When subsetting a list with \texttt{[a:b]}, Python will include the element at position \texttt{a} \textbf{but will exlude the one at position \texttt{b}} \scriptsize-- hence \texttt{my\_list[1:4]} returns the elements at positions 1, 2, 3 \normalsize
 	\end{itemize}
 
 \end{frame}
 
+\begin{frame}{Python basic classes - Lists}
+
+	We can also use negative indices: they represent the elements of a list starting by the end
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/list_subset_negative.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Python basic classes - Lists}
+
+	To add new elements to existing lists, we use \texttt{.append()}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/list_append.png}
+	\end{figure}
+
+	Note that this will modify our list variable in-place -- it's not necessary to define the result as a new variable with \texttt{=} when we use \texttt{.append()}
+
+\end{frame}
+
+\begin{frame}{Python basic classes - Lists}
+
+	We can use the \texttt{+} and \texttt{*} operators with lists
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/list_operations.png}
+	\end{figure}
+
+\end{frame}
 
 \begin{frame}{Python basic classes - Booleans}
 
-	Booleans (\texttt{bool}) are classes representing boolean values -- either \texttt{True} or \texttt{False}
+	Booleans (\texttt{bool}) are variables representing boolean values -- either \texttt{True} or \texttt{False}
 
 	\begin{figure}
 		\centering
@@ -381,13 +458,13 @@
 \begin{frame}{Python basic classes - Booleans}
 
 	\begin{itemize}	
-		\item We can generate booleans by direct assignation or with boolean expressions
+		\item We can create booleans by direct assignation or with boolean expressions
 		\item When using direct assignation, Python recognizes booleans when they are written without quotes and with the first character in uppercase and the rest in lowercase
 	\end{itemize}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.6\linewidth]{img/bool_assignation.png}
+		\includegraphics[width=0.5\linewidth]{img/bool_assignation.png}
 	\end{figure}
 
 \end{frame}
@@ -434,66 +511,6 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
-
-	\begin{itemize}
-		\item Python uses lists to group objects like \texttt{str}, \texttt{int}, \texttt{float}, and \texttt{bool} into another object
-		\item Lists are defined enclosed in brackets and separating its values with commas
-	\end{itemize}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/list_type.png}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}{Python basic classes - Lists}
-
-	We can index and subset lists as we did with strings
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/list_subset.png}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}{Python basic classes - Lists}
-
-	To add new elements to existing lists, we use \texttt{.append()}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/list_append.png}
-	\end{figure}
-
-	Note that this will modify our list in-place -- it's not necessary to define the result as a new object when we use \texttt{.append()}
-
-\end{frame}
-
-\begin{frame}{Python basic classes - Lists}
-
-	Python allows for the use of the \texttt{+} and \texttt{*} operators between lists
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/list_operations.png}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}{Python basic classes - Lists}
-
-	Differently to Stata's variables, Python allows to have objects of different classes inside lists. We can even have lists as list elements and use chained indexing.
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/list_many_types.png}
-	\end{figure}
-
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
 \sectionpic{Python basic syntax}{img/section_slide}
 
@@ -502,37 +519,58 @@
 \begin{frame}{Basic syntax - Attributes}
 
 	\begin{itemize}
-		\item Attributes are:
+		\item Attributes are very often used when programming in Python
+		\item They do one of two things:
 			\begin{enumerate}
-				\item Operations that transform an object in-place
-				\item Operations that return a transformation of an object without modifying the original object
+				\item Attributes transform a variable in-place
+				\begin{itemize}
+					\item For example: \texttt{.append()}, an attribute of list variables
+				\end{itemize}
 			\end{enumerate}
-		\item The syntax of attributes is \textit{almost} always: \texttt{OBJECT\_NAME.ATTRIBUTE\_NAME(INPUTS\_IF\_ANY)}
 	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/attributes_append.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Basic syntax - Attributes}
+
+	2. Other attributes, by contrast, return a transformation of a variable without modifying the original
+		
+	\begin{itemize}
+		\item For example: \texttt{.lower()} and \texttt{upper()}, attributes of string variables
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/string_lower_upper.png}
+	\end{figure}
 
 \end{frame}
 
 \begin{frame}{Basic syntax - Attributes}
 
 	\begin{itemize}
-		\item \texttt{.append()} is an example of an attribute that transforms an object in-place. It's an attribute of \texttt{list} objects
-		\item \texttt{.lower()} is an example of an attribute that returns a modified object without modifying the original object. It's an attribute of \texttt{str} objects
-	\end{itemize}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/string_lower.png}
-	\end{figure}
-
-	\begin{itemize}
-		\item Attributes are specific to classes
+		\item Each data type has specific attributes. They relate to the built-in functionalities each data type has
+		\item The syntax of attributes is \textit{almost} always: \texttt{VARIABLE\_NAME.ATTRIBUTE\_NAME(INPUTS\_IF\_ANY)}
 	\end{itemize}
 
 \end{frame}
 
 \begin{frame}{Basic syntax - Looping}
 
-	We use \texttt{for} and \texttt{in} to loop through an element -- for example, through a list 
+	\begin{itemize}
+		\item Many data types in Python belong to a group called iterables -- variables you can loop through
+		\item Lists are the most commonly used iterable: if we put a list in a loop, Python will loop through every one of its elements
+		\item \texttt{int} and \texttt{float} are examples of non-iterable data types
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Basic syntax - Looping}
 
 	\begin{figure}
 		\centering
@@ -545,17 +583,42 @@
 
 	\textbf{Important:}
 
-	\begin{itemize}	
-		\item Python differentiates what is inside the \texttt{for} loop and where it ends with an indentation space
-		\item Indentation can be two spaces or four spaces depending on your text editor or Python tool. In any case, you can also press the \texttt{tab} key to create indented space
-		\item If you ever run the script of a colleague who uses different indentation spacing Python will automatically know which indentation to assume. You just have to make sure that indentation is consistent within the same script.
-	\end{itemize}
+	\begin{multicols}{2}
+
+		\begin{itemize}	
+			\item Python know what is inside the \texttt{for} loop and where it ends with an indentation space -- it works similar to the \texttt{\{ \}} symbols you use to open and close a loop in Stata
+		\end{itemize}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/list_loop.png}
+		\end{figure}
+
+	\end{multicols}
 
 \end{frame}
 
 \begin{frame}{Basic syntax - Looping}
 
-	Lists are not the only class we can loop through. Iterable objects actually include many classes: for example \texttt{str} objects allow us to loop through individual characters
+	\textbf{Important:}
+
+	\begin{multicols}{2}
+	
+		\begin{itemize}
+			\item Indentation can have two or four spaces depending on your Python interface. In any case, you can also press the \texttt{tab} key to create indented space
+			\item If you ever run the script of a colleague who uses different indentation, Python will automatically know the correct one. You just have to make sure that indentation is consistent within the same script
+		\end{itemize}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/list_loop.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+\begin{frame}{Basic syntax - Looping}
+
+	Strings are also iterables: Python loops through every character with them
 
 	\begin{figure}
 		\centering
@@ -566,8 +629,8 @@
 
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
 
-        \textbf{Conditional expressions:}
-	\texttt{if}, \texttt{elif}, and \texttt{else} are used to define conditional operations
+       \textbf{Conditional expressions:}
+	\texttt{if}, \texttt{elif}, and \texttt{else} are used to define conditional operations. They also used idented space
 
 	\begin{multicols}{3}
 
@@ -591,19 +654,49 @@
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
 
 	\begin{itemize}
-		\item A boolean expression or a boolean value must be used with \texttt{if} and with \texttt{elif}
+		\item A boolean expression or a boolean variable must be used with \texttt{if} and with \texttt{elif}
 		\item \texttt{if} doesn't necessarily need to be used with \texttt{elif} of with \texttt{else}, but these two should always be preceded by \texttt{if}
 	\end{itemize}
 
-	\begin{multicols}{3}
+	\begin{multicols}{2}
 
 		\begin{figure}
 			\centering
-			\includegraphics[width=\linewidth]{img/if_alone.png}
+			\includegraphics[width=\linewidth]{img/boolean_variables.png}
 		\end{figure}
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{img/if_elif.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+\begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/boolean_variables.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/if_elif.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+\begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/boolean_variables.png}
 		\end{figure}
 		\begin{figure}
 			\centering
@@ -611,11 +704,6 @@
 		\end{figure}
 
 	\end{multicols}
-
-	\begin{itemize}
-		\item Note that the first two examples will not apply any operation because none of the values of the objects after \texttt{if} or \texttt{elif} is \texttt{True}.
-		\item Both \texttt{if}, \texttt{elif}, and \texttt{else} need to have the same indentation level
-	\end{itemize}
 
 \end{frame}
 

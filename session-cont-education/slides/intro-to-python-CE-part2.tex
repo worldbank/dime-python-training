@@ -176,7 +176,7 @@
 
 \begin{frame}{Web scraping overview}
 
-	2. From the raw \texttt{html} code, we locate the part that is relevant for us to extract and arrange it into an object we can use
+	2. From the raw \texttt{html} code, we locate the part that is relevant for us to extract and arrange it into an variable we can use
 
 	\begin{multicols}{2}
 
@@ -227,7 +227,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
 \begin{frame}{Web scraping - Retrieving raw \texttt{html} code}
 
-	We'll use the command \texttt{get()} from \texttt{requests} to retrieve the \texttt{html} code. We'll start by saving the result of the request in an object called \texttt{response}
+	We'll use the command \texttt{get()} from \texttt{requests} to retrieve the \texttt{html} code. We'll start by saving the result of the request in an variable called \texttt{response}
 
 	\begin{figure}
 		\centering
@@ -346,12 +346,20 @@
 
 \begin{frame}{Web scraping - Extracting and arranging information}
 
-	The advantage of using this data type as opposed to a string is that now we can directly look for any divisions enclosed by the the \texttt{tr} tags. We'll use the \texttt{.find\_all()} attribute for this and save the result in a new object named \texttt{observations}
+	\begin{multicols}{2}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.45\linewidth]{img/tr_list.png}
-	\end{figure}
+		\begin{itemize}
+			\item The advantage of using this type as opposed to a string is that now we can directly look for any divisions enclosed by the the \texttt{tr} tags
+			\item We'll use the \texttt{.find\_all()} attribute for this and save the result in a new variable named \texttt{observations}
+			\item Note that \texttt{observations} is a list
+		\end{itemize}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/tr_list.png}
+		\end{figure}
+	
+	\end{multicols}
 
 \end{frame}
 
@@ -435,9 +443,9 @@
 \begin{frame}{Web scraping - Extracting and arranging information}
 
 	\begin{itemize}	
-		\item You probably realized that the first and last elements of \texttt{total\_results} are empty lists
+		\item You might have noticed that the first and last elements of \texttt{total\_results} are empty lists
 		\item This is because in our original \texttt{html} string, the first and last elements enclosed in \texttt{tr} tags didn't contain any elements enclosed in \texttt{td} tags. Then, using \texttt{observation.find\_all("td")} produced an empty lists in both cases
-		\item We can easily eliminate these observations from \texttt{total\_results} by subsetting the list and excluding them
+		\item We can easily eliminate these observations from \texttt{total\_results} by subsetting the list and excluding the last and first elements
 	\end{itemize}
 
 	\begin{figure}
@@ -472,6 +480,8 @@
 		\item \texttt{data}: the data we're loading to the dataframe
 		\item \texttt{columns}: a list of strings with the column names
 	\end{enumerate}
+
+	Pandas dataframes are a data type that is similar to a dataset in Stata
 
 \end{frame}
 
