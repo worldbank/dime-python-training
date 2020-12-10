@@ -155,7 +155,7 @@
 
 	However, a big part of the user base does not do research or data science, 
 	and libraries for some less frequently used statistical operation 
-	has not yet been developed
+	have not yet been developed
 
 \end{frame}
 
@@ -238,7 +238,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
-\sectionpic{Python basic data types}{img/section_slide}
+\sectionpic{Python variables}{img/section_slide}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
 \begin{frame}{Python variables}
@@ -273,6 +273,10 @@
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Python basic data types}{img/section_slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
 \begin{frame}{Python basic data types}
 
 	\begin{itemize}
@@ -306,7 +310,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Python basic classes - \texttt{int}}
+\begin{frame}{Python basic data types - \texttt{int}}
 
 	The \texttt{x} and \texttt{y} variables we just defined have the data type \texttt{int}
 
@@ -323,7 +327,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - \texttt{float}}
+\begin{frame}{Python basic data types - \texttt{float}}
 
 	\texttt{float} variables, on the other hand, represent real numbers 
 	-- we can do mathematical operations with floats as well
@@ -342,7 +346,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - \texttt{str}}
+\begin{frame}{Python basic data types - \texttt{str}}
 
 	\texttt{str} variables are strings with text
 
@@ -356,7 +360,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - \texttt{str}}
+\begin{frame}{Python basic data types - \texttt{str}}
 
 	Python allows two types of "mathematical" operations with \texttt{str}: \texttt{+} and \texttt{*}
 
@@ -367,7 +371,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
+\begin{frame}{Python basic data types - Lists}
 
 	\begin{itemize}
 		\item A list is a variable that groups other variables
@@ -382,34 +386,34 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
+\begin{frame}{Python basic data types - Lists}
 
-	We can index and subset lists
+	We can index lists
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/list_index.png}
+	\end{figure}
+
+	\textbf{Important:} Python starts indexing at zero, not at one
+
+\end{frame}
+
+\begin{frame}{Python basic data types - Lists}
+
+	We can subset lists
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{img/list_subset.png}
 	\end{figure}
 
-\end{frame}
-
-\begin{frame}{Python basic classes - Lists}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.53\linewidth]{img/list_subset_warnings.png}
-	\end{figure}
-
-	\textbf{Important:} Pythonists coming from Stata should keep this in mind:
-
-	\begin{itemize}
-		\item \textbf{Python starts indexing at zero}, not at one
-		\item When subsetting a list with \texttt{[a:b]}, Python will include the element at position \texttt{a} \textbf{but will exlude the one at position \texttt{b}} \scriptsize-- hence \texttt{my\_list[1:4]} returns the elements at positions 1, 2, 3 \normalsize
-	\end{itemize}
+	\textbf{Important:} When subsetting a list with \texttt{[a:b]}, Python will include the element at position \texttt{a} \textbf{but will exlude the one at position \texttt{b}}
+	\newline \scriptsize hence \texttt{my\_list[1:4]} returns the elements at positions 1, 2, 3 \normalsize
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
+\begin{frame}{Python basic data types - Lists}
 
 	We can also use negative indices: they represent the elements of a list starting by the end
 
@@ -420,7 +424,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
+\begin{frame}{Python basic data types - Lists}
 
 	To add new elements to existing lists, we use \texttt{.append()}
 
@@ -433,7 +437,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Lists}
+\begin{frame}{Python basic data types - Lists}
 
 	We can use the \texttt{+} and \texttt{*} operators with lists
 
@@ -444,7 +448,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Booleans}
+\begin{frame}{Python basic data types - Booleans}
 
 	Booleans (\texttt{bool}) are variables representing boolean values -- either \texttt{True} or \texttt{False}
 
@@ -455,7 +459,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Booleans}
+\begin{frame}{Python basic data types - Booleans}
 
 	\begin{itemize}	
 		\item We can create booleans by direct assignation or with boolean expressions
@@ -469,7 +473,7 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Booleans}
+\begin{frame}{Python basic data types - Booleans}
 
 	Some operators for boolean expressions are \texttt{==}, \texttt{>}, \texttt{>=}, \texttt{<}, \texttt{<=}, and \texttt{in} (to check if an element is part of a list)
 
@@ -480,34 +484,23 @@
 
 \end{frame}
 
-\begin{frame}{Python basic classes - Booleans}
+\begin{frame}{Python basic data types - Booleans}
 
-	We can do logical operations with booleans using \texttt{and}, \texttt{\&}, \texttt{or}, \texttt{|}
+	We can do logical operations with booleans using \texttt{and}, \texttt{or}
 
 	\begin{multicols}{2}
 
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.8\linewidth]{img/and.png}
+			\includegraphics[width=\linewidth]{img/and.png}
 		\end{figure}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.8\linewidth]{img/or.png}
+			\includegraphics[width=\linewidth]{img/or.png}
 		\end{figure}
 
 	\end{multicols}
 
-
-\end{frame}
-
-\begin{frame}{Python basic classes - Booleans}
-
-	The order of the operations and the use of parenthesis matter for the results. Python will solve first the operations at the beginning of a line and continue one by one until the end unless something is enclosed in parentheses
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/bool_operations.png}
-	\end{figure}
 
 \end{frame}
 
@@ -586,7 +579,7 @@
 	\begin{multicols}{2}
 
 		\begin{itemize}	
-			\item Python know what is inside the \texttt{for} loop and where it ends with an indentation space -- it works similar to the \texttt{\{ \}} symbols you use to open and close a loop in Stata
+			\item Python know what is inside the loop and where it ends with an indentation space -- it works similar to the \texttt{\{ \}} symbols you use to open and close a loop in Stata
 		\end{itemize}
 		\begin{figure}
 			\centering
@@ -630,7 +623,7 @@
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
 
        \textbf{Conditional expressions:}
-	\texttt{if}, \texttt{elif}, and \texttt{else} are used to define conditional operations. They also used idented space
+	\texttt{if}, \texttt{elif}, and \texttt{else} are used to define conditional operations. They also use idented space
 
 	\begin{multicols}{3}
 
@@ -654,8 +647,8 @@
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
 
 	\begin{itemize}
-		\item A boolean expression or a boolean variable must be used with \texttt{if} and with \texttt{elif}
-		\item \texttt{if} doesn't necessarily need to be used with \texttt{elif} of with \texttt{else}, but these two should always be preceded by \texttt{if}
+		\item Instead of a boolean expression we can use a boolean value with \texttt{if} or \texttt{elif}
+		\item \texttt{if} doesn't necessarily need to be used with \texttt{elif} of with \texttt{else}, we can use it alone
 	\end{itemize}
 
 	\begin{multicols}{2}
@@ -666,7 +659,7 @@
 		\end{figure}
 		\begin{figure}
 			\centering
-			\includegraphics[width=\linewidth]{img/if_elif.png}
+			\includegraphics[width=\linewidth]{img/if_alone.png}
 		\end{figure}
 
 	\end{multicols}
@@ -674,6 +667,8 @@
 \end{frame}
 
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
+
+	We can also use \texttt{if} and \texttt{elif} without \texttt{else}
 
 	\begin{multicols}{2}
 
@@ -691,6 +686,8 @@
 \end{frame}
 
 \begin{frame}{Basic syntax - \texttt{if}, \texttt{elif}, \texttt{else}}
+
+	And we can use \texttt{if} and \texttt{else} without \texttt{elif}
 
 	\begin{multicols}{2}
 
