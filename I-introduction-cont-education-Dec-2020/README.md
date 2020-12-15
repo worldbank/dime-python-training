@@ -9,7 +9,7 @@ This introductory session will cover the syntax used by Python and its basic dat
 highlighting their properties and uses.
 We will leverage on the previous Stata knowledge of participants
 to establish analogies between Stata and Python programming and their data types.
-We will also do a web simple scraping exercise.
+We will also do a simple web scraping exercise.
 By the end of the session,
 participants will be able to conduct reviews of basic Python code
  and perform simple operations using Python.
