@@ -1,4 +1,4 @@
-# DIME's Python Training for advanced R/Stata Users
+# DIME's Python Training for Stata Users
 There are many great Python trainings across the internet,
 and they all are great in their own niche.
 The niche of this Python training is to help researchers
