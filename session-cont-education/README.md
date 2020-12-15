@@ -14,6 +14,11 @@ By the end of the session,
 participants will be able to conduct reviews of basic Python code
  and perform simple operations using Python.
 
+### Slides
+
+**Part 1:** Python basic data types and basic syntax
+**Part 2:** Web scraping example
+
 ### Date
 
 December 10th 2020, 9:30 am EST
