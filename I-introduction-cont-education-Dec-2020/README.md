@@ -1,7 +1,7 @@
 # DIME Continuing Education Session
 ## Introduction to Python for Stata Users
 
-### Course description
+### Session description
 
 Python is a versatile programming language used for a wide range of operations,
 from software development to data science applications.
@@ -17,6 +17,7 @@ participants will be able to conduct reviews of basic Python code
 ### Slides
 
 **Part 1:** Python basic data types and basic syntax
+
 **Part 2:** Web scraping example
 
 ### Date
