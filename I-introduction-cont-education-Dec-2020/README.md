@@ -20,9 +20,10 @@ participants will be able to conduct reviews of basic Python code
 
 **Part 2:** Web scraping example
 
-### Date
+### Dates
 
 December 10th 2020, 9:30 am EST
+March 04th 2021, 9:30 am EST
 
 ### Duration
 

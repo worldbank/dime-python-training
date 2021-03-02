@@ -18,7 +18,7 @@ then there might be a training better suited for you elsewhere on the big intern
 ## Content
 
 ### Session 1 - Introduction to Python
-Introduces Python variables, data types, and the basic syntax; and applies
+Introduces Python variables, data types, and the basic syntax, and applies
 these concepts in a simple web scraping exercise.
 
 **More sessions will be developed soon**
@@ -30,4 +30,4 @@ Luis Eduardo San Martin - dimeanalytics@worldbank.org
 Luis Eduardo San Martin, Kristoffer Bjärkefur
 
 ## Last update
-December 15, 2020
+March 04, 2021
