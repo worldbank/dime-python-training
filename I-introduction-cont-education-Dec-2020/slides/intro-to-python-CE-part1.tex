@@ -247,6 +247,7 @@
 		\item In Stata, variables are columns of a dataframe
 		\item In Python, variables are everything that we define with a name to be referenced -- more similar to Stata's locals or globals (macros)
 		\item Nonetheless, while macros in Stata are "nice to have" and useful, variables in Python are the building block of everything and you cannot write code without them
+		\item Variables are also broader than locals, globals or columns in Stata; for example, functions and datasets can be a variable in Python
 	\end{itemize}
 
 \end{frame}
@@ -501,6 +502,15 @@
 
 	\end{multicols}
 
+\end{frame}
+
+\begin{frame}{Python basic data types}
+
+	\begin{itemize}
+		\item Until now, we've reviewed what Python variables and basic data types are
+		\item Importantly, these are the building blocks of everything you do in Python
+		\item It is simply impossible to do perform any task if you do not know how to work with the basic data types first
+	\end{itemize}
 
 \end{frame}
 
@@ -576,14 +586,18 @@
 
 	\textbf{Important:}
 
+	Python knows what is inside the loop and where it ends with an indentation space -- it works similar to the \texttt{\{ \}} symbols you use to open and close a loop in Stata
+
 	\begin{multicols}{2}
 
-		\begin{itemize}	
-			\item Python know what is inside the loop and where it ends with an indentation space -- it works similar to the \texttt{\{ \}} symbols you use to open and close a loop in Stata
-		\end{itemize}
 		\begin{figure}
 			\centering
-			\includegraphics[width=\linewidth]{img/list_loop.png}
+			\includegraphics[width=0.86\linewidth]{img/list_loop.png}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.55\linewidth]{img/loop_stata.png}
 		\end{figure}
 
 	\end{multicols}
@@ -598,7 +612,7 @@
 	
 		\begin{itemize}
 			\item Indentation can have two or four spaces depending on your Python interface. In any case, you can also press the \texttt{tab} key to create indented space
-			\item If you ever run the script of a colleague who uses different indentation, Python will automatically know the correct one. You just have to make sure that indentation is consistent within the same script
+			\item If you ever run the script of a colleague who uses different indentation, Python will automatically know the correct one. Just make sure that indentation is consistent within the same script
 		\end{itemize}
 		\begin{figure}
 			\centering
