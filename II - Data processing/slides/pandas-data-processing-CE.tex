@@ -876,6 +876,210 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
 \begin{frame}{Data processing}
 
+	\textbf{Merge}
+
+	The basic syntax to merge two dataframes is:
+
+	\hspace{7mm} \texttt{pd.merge(left=left\_df,}
+	\newline \hspace*{25.5mm} \texttt{right=right\_df,}
+	\newline \hspace*{25.5mm} \texttt{left\_on=col\_name,}
+	\newline \hspace*{25.5mm} \texttt{right\_on=col\_name,}
+	\newline \hspace*{25.5mm} \texttt{how=merge\_type)}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Merge}
+
+	The type of merge can be one of these values:
+
+	\begin{itemize}
+		\item \textbf{"left":} keep only observations from left df, similar to Stata's \texttt{keep master} option
+		\item \textbf{"right":} keep only observations from right df, similar to Stata's \texttt{keep using}
+		\item \textbf{"inner":} keep all matched observations, similar to \texttt{keep match}
+		\item \textbf{"outer":} keep all observations, similar to not using Stata's \texttt{keep} option
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Merge}
+
+	To show how a merge is done, we first read an additional dataframe:
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.33\linewidth]{img/hh_df.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Merge}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.85\linewidth]{img/outer_merge.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.85\linewidth]{img/inner_merge.png}
+		\end{figure}
+
+	\end{multicols}{2}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Merge}
+
+	\begin{itemize}
+		\item An inner merge will only keep the matched observations
+		\item An outer merge will include all obervations
+		\item In Pandas we don't specify if it's a merge from one to many or one to one
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Merge}
+
+	\begin{itemize}
+		\item If a column is repeated in both dataframes, they will be added with the suffixes "\texttt{\_x}" and "\texttt{\_y}" to differentiate them. To avoid this, it's better to index only the columns we'll need to use before merging
+		\item If we want to generate a column with the source of each row, we need to add the argument \texttt{indicator=True}. This is similar to the variable \texttt{\_merge} that Stata creates by default
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Append}
+
+	Appending two dataframes in Pandas:
+
+	\hspace{7mm} \texttt{df.append(other\_df)}
+
+	This appends \texttt{other\_df} to the end of \texttt{df}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Append}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{img/more_crops.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{img/crops_total.png}
+		\end{figure}
+
+	\end{multicols}{2}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Append}
+
+	\begin{itemize}
+		\item The resulting dataframe has 30 rows but the last value we see in the index is 14
+		\item This is because append operations keep the index of the original dataframes intact
+		\item To reset the index, we can use the attribute \texttt{.reset\_index(drop=True)} or the argument \texttt{ignore\_index=True} inside \texttt{.append()}
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Append}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.87\linewidth]{img/crops_total_reset_index.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/crops_total_ignore_index.png}
+		\end{figure}
+
+	\end{multicols}{2}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Replacing column values}
+
+	\begin{itemize}
+		\item To replace an entire column with the same value, we just overwrite the column with: \texttt{df[col\_name] = new\_value}
+		\item To replace certain values based on a condition, we use \texttt{df.loc[]} again
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Replacing column values}
+
+	\begin{itemize}
+		\item To replace an entire column with the same value, we just overwrite the column with: \texttt{df[col\_name] = new\_value}
+		\item To replace certain values based on a condition, we use \texttt{df.loc[]} again
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Replacing column values}
+
+	The syntax to replace values based on conditions is:
+
+	\texttt{df.loc[row\_indexer, col\_indexer] = new\_value}
+
+	\begin{itemize}
+		\item \textbf{row\_indexer:} a list or Pandas series with booleans. Dataframe observations with a value of \texttt{True} for their corresponding row order will be replaced
+		\item \textbf{col\_indexer:} a string with the column name to replace. Can be a list of strings for more than column
+		\item \textbf{new\_value:} the new value we want to use
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Replacing column values}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/replace_values.png}
+	\end{figure}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
