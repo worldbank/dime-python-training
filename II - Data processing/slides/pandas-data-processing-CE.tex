@@ -223,7 +223,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
 \begin{frame}{Pandas}
 
-	\textbf{Dataframes}
+	\textbf{Creating a dataframe}
 
 	There are several ways to create a dataframe from scratch. One of the easiest is:
 
@@ -248,7 +248,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
 \begin{frame}{Pandas}
 
-	\textbf{Dataframes}
+	\textbf{Creating a dataframe}
 
 	\begin{enumerate}
 		\setcounter{enumi}{3}
@@ -267,7 +267,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
 \begin{frame}{Pandas}
 
-	\textbf{Dataframes}
+	\textbf{Creating a dataframe}
 
 	Another way to create a dataframe from zero is to define an empty dataframe and then create its columns individually.
 	\begin{figure}
@@ -276,22 +276,7 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
-\begin{frame}{Pandas}
 
-	\textbf{Dataframes}
-
-	\begin{itemize}
-		\item Every row and column of a dataframe has a \textbf{label}
-		\item Row labels are represented by the index
-		\item Column labels are represented by the column names
-	\end{itemize}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.43\linewidth]{img/dataframe_indices.png}
-	\end{figure}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
 \sectionpic{Data processing}{img/section_slide}
@@ -305,15 +290,596 @@
 	\textbf{Reading data}
 
 	\begin{itemize}
-		\item In our work, we'll seldom need to define a dataframe from scratch
-		\item More often, we'll load a pre-existing data file with Pandas
-		\item To load a \texttt{.csv} file into a dataframe, we use the command \texttt{read_csv()}
+		\item In our work, we don't usually need to define a dataframe from scratch
+		\item More often, we load pre-existing data files
+		\item To load a \texttt{.csv} file into a dataframe, we use the command \texttt{read\_csv()}
 	\end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
-\begin{frame}{}
+\begin{frame}{Data processing}
+
+	\textbf{Reading data}
+
+	\texttt{read\_csv()}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/read_csv.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Reading data}
+
+	\texttt{read\_csv()}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/read_csv.png}
+	\end{figure}
+	\begin{itemize}
+		\item \texttt{data\_location} is a string with the location of our file
+		\item It can be a URL or a path in your local disk -- though a path in your local disk won't work directly with Colab
+		\item \texttt{read\_csv()} is the Pandas function to read \texttt{.csv} files into dataframes. It takes the file location string as input
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Reading data}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\linewidth]{img/crops_df.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection
+\subsection{Exploring a dataframe}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Exploring a dataframe}
+
+	Running the dataframe name as a command will print it. If the dataframe has too many rows or columns, Python will print only the first and last rows and columns.
+
+	\begin{figure}
+		\includegraphics[width=0.4\linewidth]{img/crops_df.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Exploring a dataframe}
+
+	We can also use the \texttt{.head()} and \texttt{.tail()} attributes to return the first and last observations of a dataframe
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\includegraphics[width=\linewidth]{img/head.png}
+		\end{figure}
+		\begin{figure}
+			\includegraphics[width=\linewidth]{img/tail.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Exploring a dataframe}
+
+	To see how many rows and columns a dataframe has, we use the \texttt{.shape} attribute:
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{img/crops_shape.png}
+	\end{figure}
+
+	The result is a tuple (an immutable list) whose elements are the number of rows and columns
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Exploring a dataframe}
+
+	We can also get the number of rows with the \texttt{len()} function:
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{img/crops_len.png}
+	\end{figure}
+	
+	The result of \texttt{len()} is an integer.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Exploring a dataframe}
+
+	To check the column names, we use the \texttt{.columns} attribute:
+	
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{img/crops_columns.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection
+\subsection{Dataframe indexing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Dataframe indexing}
+
+	\begin{multicols}{2}
+
+		\begin{itemize}
+			\item Every row and column of a dataframe has a \textbf{label}
+			\item Row labels are represented by the index
+			\item Column labels are represented by the column names
+		\end{itemize}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.71\linewidth]{img/dataframe_indices.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Column indexing}
+
+	We can subset a single column of a dataframe using two methods:
+
+	\begin{itemize}
+		\item \texttt{df.column\_name}
+		\item \texttt{df['column\_name']}
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Column indexing}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.95\linewidth]{img/col_subset1.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.99\linewidth]{img/col_subset2.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Column indexing}
+
+	The difference between the two is that the first method doesn't allow column name references, while the second does
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.47\linewidth]{img/col_name_reference.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Multi-column indexing}
+
+	\begin{itemize}
+		\item We can use a syntax similar to the second method to index more than one column at the same time
+		\item Instead of including a string with one column name inside the brackets, we include a list of strings with the column names to index
+	\end{itemize}
+
+	\hspace{7mm} \texttt{df[['col\_name1', 'col\_name2', 'col\_name3', ...]]}
+
+	\begin{itemize}
+		\item Note that inside the outer brackets we have a list of strings
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Multi-column indexing}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{img/multicol_subsetting1.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.75\linewidth]{img/multicol_subsetting2.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Multi-column indexing}
+
+	A one-column index operation returns a Pandas series. A multicolumn index returns another dataframe.
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/price.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\linewidth]{img/price_quantity.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	There are basically two methods to index rows in Pandas. The simplest is \texttt{.iloc[]}, which is used to index the i-th row or rows:
+
+	\begin{itemize}
+		\item Indexing a single row: \texttt{df.iloc[i]}
+		\item Indexing a range of continuous rows from i until (j-1): \texttt{df.iloc[i:j]}
+		\item Indexing the i-th and j-th non-continuous rows: \texttt{df.iloc[[i, j]]}
+	\end{itemize}
+
+	\textbf{Very important:} In Python, every numeric index starts at zero, not at one
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	\begin{itemize}
+		\item Indexing a single row: \texttt{df.iloc[i]}
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/single_row.png}
+	\end{figure}
+
+	Note that the outcome of indexing a single row is a Pandas series, not a dataframe
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	\begin{itemize}
+		\item Indexing a range of continuous rows from i until (j-1): \texttt{df.iloc[i:j]}
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/consecutive_rows.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	\begin{itemize}
+		\item Indexing the i-th and j-th non-continuous rows: \texttt{df.iloc[[i, j]]}
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/non-consecutive_rows.png}
+	\end{figure}
+
+	Note that the index of the resulting dataframe is not necessarily sorted, it keeps the order in which we selected the rows to subset
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	The second method to index rows in Pandas is \texttt{.loc[]}. It subsets the rows whose index values coincide with the input inside the brackets.
+
+	\begin{itemize}
+		\item Until now, the dataframes we've worked with had and index which coincided with the row number
+		\item That's not always the case, as we'll soon see
+		\item The command to index the row whose index value is \texttt{i} is this: \texttt{df.loc[i]}
+	\end{itemize}
+
+We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]} methods in the next slide
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Row indexing}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{img/row_loc_iloc.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Single-value indexing}
+
+	To index a single value of a dataframe, we need to index a column and the row-index value \texttt{.loc[]} or position \texttt{.iloc[]}
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/single_value_index1.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/single_value_index2.png}
+		\end{figure}
+
+	\end{multicols}
+
+	We can specify the row first and the column later, or viceversa
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection
+\subsection{Filtering}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	\begin{itemize}
+		\item In Stata, we use the command \texttt{keep if \textit{column\_condition}} to filter observations
+		\item Pandas' syntax to filter is heavier, as we shall see soon
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	\begin{itemize}
+		\item To filter values of a dataframe, we use brackets and include a list or Pandas series with boolean values inside them:
+	\end{itemize}
+
+	\hspace{7mm} \texttt{df[list\_with\_booleans]}
+
+	\begin{itemize}	
+		\item The observations filtered-in are the ones that have a value of \texttt{True} in their cooresponding position
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	Note that the list or Pandas series with booleans needs to have the same length as the dataframe
+
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.85\linewidth]{img/boolean_list.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/crops_filtered.png}
+		\end{figure}
+
+	\end{multicols}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	\begin{itemize}
+		\item Other than a list with booleans, we can use a Pandas series with booleans
+		\item The advantage of this is that we can generate them very easily when operating a dataframe column with a logical condition
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.45\linewidth]{img/boolean_series.png}
+	\end{figure}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{img/fewest_crops.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Filtering}
+
+	We can also use more than one condition at the same time:
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{img/crops_subset.png}
+	\end{figure}
+
+	\textbf{Important:} When using more than one condition, each of them must be enclosed in parentheses.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Creating new columns}
+
+	\begin{itemize}
+		\item To create a new column in a dataframe, we define it using the brackets as in:
+	\end{itemize}
+	
+	\hspace{7mm} \texttt{df[new\_col\_name] = value}
+	
+	\begin{itemize}
+		\item Other than a value, we can use columns operations to define new columns
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Creating new columns}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/column_generation.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Group by}
+
+	\begin{itemize}
+		\item The syntax to group a dataframe is:
+	\end{itemize}
+
+	\hspace{7mm} \texttt{df.groupby(by = col\_name).sum()}
+
+	\begin{itemize}
+		\item This will return a grouped dataframe by \texttt{col\_name}, where every other column contains a sum of its previous values by \texttt{col\_name}
+		\item Other possible operations are: \texttt{.mean()}, \texttt{.std()}, and \texttt{.quantile()}
+		\item We can also group by more than one column, by replacing \texttt{col\_name} with a list of strings containing the column names to group by
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Group by}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{img/groupby.png}
+	\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Group by}
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item After grouping, the resulting dataframe has the group column as index
+			\item This means that \texttt{farmer\_revenue} has a \textbf{meaningful index} now, an index that has information itself and is different than the row number
+			\item Meaningful indices can be useful in some cases, but that's out of the topics we'll cover today
+		\end{itemize}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{img/farmer_revenue.png}
+		\end{figure}
+	\end{multicols}{2}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+	\textbf{Group by}
+
+	To move \texttt{farmerid} back to the columns, use the attribute \texttt{.reset\_index()}. We could have also used the argument \texttt{as\_index=False} in \texttt{.groupby()} in the first place.
+
+	\begin{multicols}{2}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{img/reset_index.png}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/groupby_no_index.png}
+		\end{figure}
+	\end{multicols}{2}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Data processing}
 
 \end{frame}
 
