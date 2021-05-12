@@ -21,6 +21,10 @@ then there might be a training better suited for you elsewhere on the big intern
 Introduces Python variables, data types, and the basic syntax, and applies
 these concepts in a simple web scraping exercise.
 
+### Session 2 - Data processing in Python using Pandas
+Introduces the Pandas library, its basic data types, and how to use it
+to perform the most common data processing operations in Python.
+
 **More sessions will be developed soon**
 
 ## Main contact
@@ -30,4 +34,4 @@ Luis Eduardo San Martin - dimeanalytics@worldbank.org
 Luis Eduardo San Martin, Kristoffer Bjärkefur
 
 ## Last update
-March 04, 2021
+May 03, 2021
