@@ -17,8 +17,10 @@
 \usepackage{xcolor}
 \usepackage{soul}	% For strike-through
 \usepackage{tcolorbox} % For color box
+\usepackage{caption}
 
 \newcounter{exercises}
+\captionsetup{labelformat=empty,labelsep=none}
 
 \title{Data Processing in Python\\Using Pandas}
 \date{}
@@ -121,13 +123,13 @@
 
 	\begin{itemize}
 		\item This session will introduce you to Pandas
-		\item Pandas are the most popular way to store and process data in Python
+		\item Pandas is the most popular way to store and process data in Python
 		\item We'll discuss:
 		\begin{itemize}
 			\item Pandas dataframes
 			\item Data processing operations
 		\end{itemize}
-		\item We'll compare Pandas' commands to commands in Stata
+		\item We'll compare some Pandas' commands to commands in Stata
 	\end{itemize}
 
 \end{frame}
@@ -142,7 +144,6 @@
 		\item \textbf{ML:} If you ever want to implement machine learning using Python, you'll likely need Pandas
 		\item \textbf{Cloud platforms:} Cloud platforms assume Python much more often than Stata, and Pandas is the library assumed for data processing
 		\item \textbf{Big data:} though Pandas is not suitable for big data,  the most popular Python big data tools expect you to know it
-		
 	\end{itemize}
 
 \end{frame}
@@ -196,7 +197,7 @@
 
 	\begin{itemize}
 		\item Pandas is an external library for Python, it isn't part of Python's base installation
-		\item In Google colab it is already installed, but you will have to install it using \texttt{pip install pandas}
+		\item In Google colab it is already installed. To use it in your local computer Python installation, you will have to install it using \texttt{pip install pandas} in the command line
 		\item Use the following command to import Pandas to your notebook:
 	\end{itemize}
 
@@ -215,8 +216,9 @@
 		\begin{itemize}
 			\item A dataframe is a two-dimensional data structure
 			\item The Stata equivalent to dataframes are datasets
-			\item Dataframes is a data structure where each row represents a unit of observation and each column represents an observation's attribute		
+			\item A dataframe is a data structure where each row represents a unit of observation and each column represents an observation's attribute		
 		\end{itemize}
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\linewidth]{img/dataframe.png}
@@ -246,7 +248,6 @@
 		\begin{figure}
 			\includegraphics[width=0.8\linewidth]{img/data_list.png}
 		\end{figure}
-
 	\end{enumerate}
 
 \end{frame}
@@ -258,11 +259,11 @@
 
 	\begin{enumerate}
 		\setcounter{enumi}{3}
-		\item Use the lists \texttt{data} and \texttt{column\_names} as inputs in the \texttt{DataFrame()} command
+		\item Use the lists \texttt{data} and \texttt{column\_names} as inputs in the \texttt{pd.DataFrame()} command
 		\begin{figure}
 			\includegraphics[width=0.8\linewidth]{img/dataframe_definition.png}
 		\end{figure}
-		\item Now your dataframe is defined in the variable \texttt{df}. You can use that name to refer to it or see a representation of it, as in:
+		\item Now your dataframe is defined in the variable \texttt{df}. You can use that name to refer to or see a representation of it, as in:
 		\begin{figure}
 			\includegraphics[width=0.8\linewidth]{img/df.png}
 		\end{figure}
@@ -297,7 +298,7 @@
 	\begin{itemize}
 		\item In our work, we don't usually need to define a dataframe from scratch
 		\item More often, we load pre-existing data files
-		\item To load a \texttt{.csv} file into a dataframe, we use the command \texttt{read\_csv()}
+		\item To load a \texttt{.csv} file into a dataframe, we use the command \texttt{pd.read\_csv()}
 	\end{itemize}
 
 \end{frame}
@@ -330,7 +331,7 @@
 	\begin{itemize}
 		\item \texttt{data\_location} is a string with the location of our file
 		\item It can be a URL or a path in your local disk -- though a path in your local disk won't work directly with Colab
-		\item \texttt{read\_csv()} is the Pandas function to read \texttt{.csv} files into dataframes. It takes the file location string as input
+		\item \texttt{pd.read\_csv()} is the Pandas function to read \texttt{.csv} files into dataframes. It takes the file location string as input
 	\end{itemize}
 
 \end{frame}
@@ -379,7 +380,7 @@
 			\includegraphics[width=0.85\linewidth]{img/crops_df.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -452,7 +453,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
 \begin{frame}{Indexing and filtering}
 
-	\textbf{Dataframe indexing}
+	\textbf{Indexing}
 
 	\begin{multicols}{2}
 
@@ -523,7 +524,7 @@
 			\includegraphics[width=0.9\linewidth]{img/col_name_reference.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -537,7 +538,7 @@
 		\item Instead of including a string with one column name inside the brackets, we include a list of strings with the column names to index
 	\end{itemize}
 
-	\hspace{7mm} \texttt{df[['col\_name1', 'col\_name2', 'col\_name3', ...]]}
+	\hspace{7mm} \texttt{df[["col\_name1", "col\_name2", "col\_name3", ...]]}
 
 	\begin{itemize}
 		\item Note that inside the outer brackets we have a list of strings
@@ -625,7 +626,7 @@
 			\includegraphics[width=\linewidth]{img/single_row.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 	Note that the outcome of indexing a single row is a Pandas series, not a dataframe
 
@@ -663,7 +664,7 @@
 		\includegraphics[width=0.5\linewidth]{img/non-consecutive_rows.png}
 	\end{figure}
 
-	Note that the index of the resulting dataframe is not necessarily sorted, it keeps the order in which we selected the rows to subset
+	The index of the resulting dataframe is not sorted, it keeps the order in which we selected the rows to subset
 
 \end{frame}
 
@@ -680,7 +681,7 @@
 		\item The command to index the row whose index value is \texttt{i} is this: \texttt{df.loc[i]}
 	\end{itemize}
 
-We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]} methods in the next slide
+	We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]} methods in the next slide
 
 \end{frame}
 
@@ -762,6 +763,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\centering
 			\includegraphics[width=0.85\linewidth]{img/boolean_list.png}
 		\end{figure}
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{img/crops_filtered.png}
@@ -785,7 +787,6 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 		\centering
 		\includegraphics[width=0.45\linewidth]{img/boolean_series.png}
 	\end{figure}
-
 
 \end{frame}
 
@@ -861,12 +862,12 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 		\item The syntax to group a dataframe is:
 	\end{itemize}
 
-	\hspace{7mm} \texttt{df.groupby(by = col\_name).sum()}
+	\hspace{7mm} \texttt{df.groupby(by = "col\_name").sum()}
 
 	\begin{itemize}
 		\item This will return a grouped dataframe by \texttt{col\_name}, where every other column contains a sum of its previous values by \texttt{col\_name}
 		\item Other possible operations are: \texttt{.mean()}, \texttt{.std()}, \texttt{.quantile()}
-		\item We can also group by more than one column, by replacing \texttt{col\_name} with a list of strings containing the column names to group by
+		\item We can also group by more than one column, by replacing "\texttt{col\_name}" with a list of strings containing the column names to group by
 	\end{itemize}
 
 \end{frame}
@@ -888,7 +889,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\includegraphics[width=\linewidth]{img/groupby.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -900,14 +901,15 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item After grouping, the resulting dataframe has the group column as index
-			\item This means that \texttt{farmer\_revenue} has a \textbf{meaningful index} now, an index that has information itself and is different than the row number
+			\item This means that \texttt{farmer\_revenue} has a \textbf{meaningful index}, an index that has information itself and is different than the row number
 			\item Meaningful indices can be useful in some cases, but that's out of the topics we'll cover today
 		\end{itemize}
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\linewidth]{img/farmer_revenue.png}
 		\end{figure}
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -970,7 +972,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 
 	\textbf{Merge}
 
-	To show how a merge is done, we first read an second dataframe:
+	To show how a merge is done, we first read a second dataframe:
 
 	\begin{figure}
 		\centering
@@ -995,7 +997,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\includegraphics[width=0.85\linewidth]{img/inner_merge.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -1048,12 +1050,13 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\centering
 			\includegraphics[width=0.8\linewidth]{img/more_crops.png}
 		\end{figure}
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.9\linewidth]{img/crops_total.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -1083,12 +1086,13 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\centering
 			\includegraphics[width=0.87\linewidth]{img/crops_total_reset_index.png}
 		\end{figure}
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{img/crops_total_ignore_index.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -1157,7 +1161,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\includegraphics[width=0.85\linewidth]{img/crops_total_describe.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 
 \end{frame}
@@ -1179,7 +1183,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 			\includegraphics[width=\linewidth]{img/desc_stats.png}
 		\end{figure}
 
-	\end{multicols}{2}
+	\end{multicols}
 
 \end{frame}
 
@@ -1235,5 +1239,26 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Looking ahead}{img/section_slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slide
+\begin{frame}{Looking ahead}
+
+	\textbf{Looking ahead}
+
+	\begin{itemize}
+		\item Pandas is a huge data processing library
+		\item We've barely skimmed the surface of its features today. It can do any data wrangling operation possible to do in Stata
+		\item Its official documentation is exceptionally clear and detailed, especially for Python standards. Check it out here: https://pandas.pydata.org/docs/
+		\item Some examples of Python data work libraries that use Pandas or build on its syntax:
+		\begin{itemize}
+			\item \textbf{Data visualization:} altair, seaborn, matplotlib
+			\item \textbf{Machine Learning:} scikit-learn
+			\item \textbf{Big data:} koalas
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
 
 \end{document}
