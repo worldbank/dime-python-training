@@ -620,7 +620,7 @@
 		\includegraphics[width=0.45\linewidth]{img/consecutive_rows.png}
 	\end{figure}
 
-	Note that the index of the outcome dataframe doesn't start with zero anymore. We'll explain more about this in a while.
+	Note that the index of the resulting dataframe doesn't start with zero anymore. We'll explain more about this in a while.
 
 \end{frame}
 
@@ -840,7 +840,7 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 
 	\begin{itemize}
 		\item This will return a grouped dataframe by \texttt{col\_name}, where every other column contains a sum of its previous values by \texttt{col\_name}
-		\item Other possible operations are: \texttt{.mean()}, \texttt{.std()}, and \texttt{.quantile()}
+		\item Other possible operations are: \texttt{.mean()}, \texttt{.std()}, \texttt{.quantile()}
 		\item We can also group by more than one column, by replacing \texttt{col\_name} with a list of strings containing the column names to group by
 	\end{itemize}
 
@@ -851,10 +851,19 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 
 	\textbf{Group by}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=\linewidth]{img/groupby.png}
-	\end{figure}
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/crops_with_revenue.png}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/groupby.png}
+		\end{figure}
+
+	\end{multicols}{2}
 
 \end{frame}
 
@@ -1030,9 +1039,11 @@ We'll show more on the diference between the \texttt{.loc[]} and \texttt{iloc[]}
 
 	\begin{itemize}
 		\item The resulting dataframe has 30 rows but the last value we see in the index is 14
-		\item This is because append operations keep the index of the original dataframes intact
+		\item This is because append operations keep the index of the original dataframes intact. The index is now composed of two consecutive counts from 0-14, duplicated
 		\item To reset the index, we can use the attribute \texttt{.reset\_index(drop=True)} or the argument \texttt{ignore\_index=True} inside \texttt{.append()}
 	\end{itemize}
+
+	\textbf{Important:} Don't think of the dataframe index as a row unique identifier. It can have duplicated values
 
 \end{frame}
 
