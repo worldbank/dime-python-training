@@ -33,5 +33,8 @@ Luis Eduardo San Martin - dimeanalytics@worldbank.org
 ## Authors
 Luis Eduardo San Martin, Kristoffer Bjärkefur
 
+## Other contributors
+Carla Solis
+
 ## Last update
-May 03, 2021
+May 12, 2021
