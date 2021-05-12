@@ -465,7 +465,7 @@
 		\item \texttt{df["column\_name"]}
 	\end{itemize}
 
-	Remember that in Python we can use both double or single quotes interchangeably most of the times
+	Remember that in Python we can use both double or single quotes interchangeably most of the times.
 
 \end{frame}
 
@@ -588,10 +588,19 @@
 		\item Indexing a single row: \texttt{df.iloc[i]}
 	\end{itemize}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{img/single_row.png}
-	\end{figure}
+	\begin{multicols}{2}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.5\linewidth]{img/dataframe.png}
+		\end{figure}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{img/single_row.png}
+		\end{figure}
+
+	\end{multicols}{2}
 
 	Note that the outcome of indexing a single row is a Pandas series, not a dataframe
 
